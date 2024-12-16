@@ -3,7 +3,7 @@ name: Generate ASCII
 on: push
 
 jobs:
-  Generate-ascii:
+  Generate_ascii:
     runs-on: ubuntu-latest
     steps:
 
