@@ -26,7 +26,7 @@ jobs:
       run: sleep 10
 
   built_job3:
-    needs: test_jobs
+    needs: [test_job2]
     runs-on: ubuntu-latest
     steps: 
     - name: Read files
