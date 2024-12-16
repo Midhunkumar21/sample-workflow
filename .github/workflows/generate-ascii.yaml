@@ -1,4 +1,4 @@
-name: Generate ascii
+name: Generate ASCII
 
 on: push
 
