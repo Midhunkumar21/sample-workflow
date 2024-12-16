@@ -1,0 +1,26 @@
+name: Generate ascii
+
+on: push
+
+jobs:
+  Generate-ascii:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: checkout repo
+      uses: actions/checkout@v2
+
+    - name: Install comsay program
+      run: sudi apt-get install consay -y
+
+     - name: Executr consay CMD
+       run: consay -f dragon "run for cover, I am Dragon...RAWR" >> dragon.txt
+
+      - name: Text file Exists
+        run: grep -i "dragon" dragon.txt  
+
+      - name: Read file
+        run: cat dragon.txt
+
+      - name: List files  
+        run: ls
