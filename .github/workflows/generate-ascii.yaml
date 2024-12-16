@@ -3,7 +3,7 @@ name: Generate ASCII
 on: push
 
 jobs:
-   built_job1:
+  built_job1:
     runs-on: ubuntu-latest
     steps:
     - name: Install cowsay program
