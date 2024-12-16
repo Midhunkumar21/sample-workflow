@@ -16,6 +16,7 @@ jobs:
       run: sleep 30  
 
   test_job2: 
+    needs: built_job1
     runs-on: ubuntu-latest
     steps:
     - name: Text file exists
@@ -25,6 +26,7 @@ jobs:
       run: sleep 10
 
   built_job3:
+    needs: test_jobs
     runs-on: ubuntu-latest
     steps: 
     - name: Read files
