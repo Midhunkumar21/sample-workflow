@@ -3,7 +3,7 @@ name: my first workflows
 on: push
 
 jobs:
-   first jobs:
+   first_jobs:
        runs on: ubuntu-latest
        steps:
        - name: welcome workflow
