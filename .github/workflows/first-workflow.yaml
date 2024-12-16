@@ -7,15 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    -name: checkout repo
-     run: action/checkout@v4
+    - name: checkout repo
+      uses: actions/checkout@v2
 
     - name: welcome workflow
       run: echo "my first workflow"
 
     - name: list file
       run: ls
-
 
   
 
