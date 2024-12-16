@@ -5,7 +5,7 @@ on: push
 jobs:
    built_job1:
    runs-on: ubuntu-latest
-   steps:
+    steps:
     - name: Install cowsay program
       run: sudo apt-get install cowsay -y
 
@@ -17,7 +17,7 @@ jobs:
 
   test_job2: 
   runs-on: ubuntu-latest
-  steps:
+   steps:
     - name: Text file exists
       run: grep -i "dragon" dragon.txt   
 
@@ -26,7 +26,7 @@ jobs:
 
   built_job3:
   runs-on: ubuntu-latest
-  steps: 
+   steps: 
     - name: Read files
       run: cat dragon.txt
 
