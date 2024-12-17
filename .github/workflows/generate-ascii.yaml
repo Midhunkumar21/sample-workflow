@@ -16,7 +16,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Dragon text file
-        path: gragon.txt 
+        path: dragon.txt 
 
   test_job2: 
     needs: built_job1
@@ -29,7 +29,6 @@ jobs:
       uses: actions/download-artifact@v3
       with:
          name: Dragon text file
-         path: gragon.txt 
 
   built_job3:
     needs: [test_job2]
@@ -39,7 +38,6 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: Dragon text file
-        path: gragon.txt 
 
     - name: Read files
       run: cat dragon.txt || echo "File not found"
