@@ -13,7 +13,7 @@ jobs:
       run: cowsay -f dragon "run for cover, I am Dragon...RAWR" >> dragon.txt
 
     - name: Upload dragon text file
-      user: actions/upload-artifacts@v3
+      uses: actions/upload-artifacts@v3
       with:
          - name: dragon text file
            path: gragon.txt 
@@ -26,7 +26,7 @@ jobs:
       run: test -f dragon.txt && grep -i "dragon" dragon.txt || echo "File not found"
 
     - name: Download dragon text file
-      user: actions/download-artifacts@v3
+      uses: actions/download-artifacts@v3
       with:
          - name: dragon text file
            path: gragon.txt 
@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: Download dragon text file
-      user: actions/download-artifacts@v3
+      uses: actions/download-artifacts@v3
       with:
          - name: dragon text file
            path: gragon.txt 
