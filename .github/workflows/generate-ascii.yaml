@@ -28,7 +28,7 @@ jobs:
     - name: Download dragon text file
       user: actions/download-artifacts@v3
       with:
-         - nem: dragon text file
+         - name: dragon text file
            path: gragon.txt 
 
   built_job3:
@@ -38,7 +38,7 @@ jobs:
     - name: Download dragon text file
       user: actions/download-artifacts@v3
       with:
-         - nem: dragon text file
+         - name: dragon text file
            path: gragon.txt 
 
     - name: Read files
