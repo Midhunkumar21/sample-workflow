@@ -27,7 +27,7 @@ jobs:
 
     - name: Download dragon text file
       user: actions/download-artifacts@v3
-        with:
+      with:
          - nem: dragon text file
            path: gragon.txt 
 
@@ -37,7 +37,7 @@ jobs:
     steps: 
     - name: Download dragon text file
       user: actions/download-artifacts@v3
-        with:
+      with:
          - nem: dragon text file
            path: gragon.txt 
 
