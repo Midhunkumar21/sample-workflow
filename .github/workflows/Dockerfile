@@ -7,37 +7,3 @@ COPY . /usr/share/nginx/html
 # Expose port 80
 EXPOSE 80
 
-name: Variable Secrets
-
-on: 
-  workflow_dispatch: # Allows manual trigger of the workflow
-  schedule:
-    - cron: '*/1 * * * *' # Runs every minute
-
-concurrency:
-    group: production
-    cancel-in-progress: true   # Ensures only one job runs at a time for this group
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    env:
-      MY_ENV_VAR: "Hello World" # Static environment variable
-      API_USERNAME: ${{ vars.API_USERNAME }}  # Custom variable (ensure defined in repository settings)
-      API_KEY: ${{ secrets.API_KEY }}  # Secret stored in GitHub Secrets
-
-    steps:
-      timeout-minutes: 1  # The job will time out after 1 minute if not completed
-
-      - name: Checkout code
-        uses: actions/checkout@v2  # Check out the code from the repository
-
-      - name: Sleep for 120 seconds
-        run: sleep 120  # Pauses the job for 120 seconds
-
-      - name: Print environment variables
-        run: |
-          echo "The environment variable is: $MY_ENV_VAR"
-          echo "The API username is: $API_USERNAME"
-          echo "The API key is: $API_KEY" # This will be masked in logs by GitHub secrets handling
