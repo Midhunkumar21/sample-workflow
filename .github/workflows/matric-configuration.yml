@@ -17,7 +17,7 @@ jobs:
   deploy-matrix:
     strategy:
       matrix:
-        os: [ubuntu-latest, ubuntu-20.04, windows-latest]
+        os: [ubuntu-latest, ubuntu-20.04]
         image: [hello-world, alpine]
     runs-on: ${{ matrix.os }}
     steps:
@@ -25,9 +25,4 @@ jobs:
         run: docker info
 
       - name: Run container with image ${{ matrix.image }}
-        run: |
-          if [[ "${{ matrix.os }}" == *"windows"* && "${{ matrix.image }}" == "alpine" ]]; then
-            echo "Skipping Alpine on Windows."
-          else
-            docker run ${{ matrix.image }}
-          fi
+        run: docker run ${{ matrix.image }}
