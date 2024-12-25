@@ -1,24 +1,24 @@
 name: matric-configuration
 
 on:
- push:
- workflow_dispatch:
+  push:
+  workflow_dispatch:
 
 jobs:
- deploy on linux:
-  runs-on: ubuntu-latest
-  steps:
-   - name: echo docker details
-   - run: docker info
+  deploy-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Docker details on Linux
+        run: docker info
 
-   - name: run images
-   - run: docker run hello-world
+      - name: Run Hello World container on Linux
+        run: docker run hello-world
 
- deploy on windows:
-  runs-on: windows-latest
-  steps:
-  - name: echo docker details
-  - run: docker info
+  deploy-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Echo Docker details on Windows
+        run: docker info
 
-  - name: run images
-  - run: docker run hello-world
+      - name: Run Hello World container on Windows
+        run: docker run hello-world
