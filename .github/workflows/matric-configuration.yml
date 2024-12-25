@@ -26,5 +26,8 @@ jobs:
 
       - name: Run container with image ${{ matrix.image }}
         run: |
-         echo "skipping alpine on windows"
-         docker run ${{ matrix.image }}
+          if [[ "${{ matrix.os }}" == *"windows"* && "${{ matrix.image }}" == "alpine" ]]; then
+            echo "Skipping Alpine on Windows."
+          else
+            docker run ${{ matrix.image }}
+          fi
