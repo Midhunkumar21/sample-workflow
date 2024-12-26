@@ -17,12 +17,12 @@ jobs:
   deploy-matrix:
     strategy:
       matrix:
-        os: [ubuntu-latest, ubuntu 20.04]
+        os: [ubuntu-latest, ubuntu 20.04,windows-latest]
         image: [hello-world, alpine]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Echo Docker details
         run: docker info
 
-      - name: Run container with image ${{ matrix.image }}
+      - name: Run container with image ${{ matrix.os }}
         run: docker run ${{ matrix.image }}
