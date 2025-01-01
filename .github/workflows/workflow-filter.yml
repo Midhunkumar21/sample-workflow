@@ -1,23 +1,22 @@
 name: Workflow Filters and Activities
 
 on:
- workflow_dispatch:
- push:
-  branches:
-   - main
-   - !features/*
-
- pull-request:
-  types:
-   -opened
-   -closed
-  path-ignore:
-   -README.md
-  branches:
-   -main   
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - '!features/*' # Excludes branches starting with "features/"
+  pull_request:
+    types:
+      - opened
+      - closed
+    paths-ignore:
+      - README.md # Ignores changes to README.md
+    branches:
+      - main
 
 jobs:
- hello:
-  runs-on: ubuntu-latest
-  steps:
-   - run: echo this workflow/job/step is executed for event type - ${{ github.event_name}}
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This workflow/job/step is executed for event type - ${{ github.event_name }}"
